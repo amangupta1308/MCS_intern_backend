@@ -1,12 +1,18 @@
 const dotenv = require('dotenv');
 dotenv.config();
-const express = require('express');
 const cors = require('cors');
+let corsOptions = {
+    origin: 'https://mcs-intern-frontend.vercel.app',
+    optionsSuccessStatus: 200,
+    methods: "GET, PATCH, DELETE, POST"
+}
+
+const express = require('express');
 const app = express();
+app.use(cors(corsOptions));
 require('./src/db/conn');
 const PORT = 8000 || process.env.PORT;
 const Task = require('./src/models/Task');
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
