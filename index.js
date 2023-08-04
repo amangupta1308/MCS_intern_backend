@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const cors = require('cors');
 let corsOptions = {
-    origin: 'https://mcs-intern-backend.onrender.com',
+    origin: '*',
     optionsSuccessStatus: 200,
     methods: "GET, PATCH, DELETE, POST"
 }
